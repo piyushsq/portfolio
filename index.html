@@ -2,25 +2,455 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Piyush Suteri's Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Piyush's Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      background-color: rgb(0, 0, 33);
+      color: white;
+      font-family: "Poppins", sans-serif;
+      line-height: 1.6;
+    }
+
+    nav {
+      background-color: rgb(30, 30, 100);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+      height: 50px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .left {
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 18px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.15s ease-in, font-size 0.15s ease-in;
+    }
+
+    nav ul li a:hover {
+      color: rgb(227, 86, 201);
+      font-size: 1.2rem;
+    }
+
+    .firstSection {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 40px 0;
+      padding: 0 2rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .leftSection {
+      flex: 1 1 300px;
+      font-size: 2.5rem;
+      font-weight: 600;
+      min-width: 280px;
+    }
+
+    .purple {
+      color: rgb(202, 42, 202);
+    }
+
+    #element {
+      display: block;
+      margin-top: 10px;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    .rightSection {
+      flex: 1 1 300px;
+      min-width: 280px;
+      display: flex;
+      justify-content: center;
+    }
+
+    #programmer {
+      max-width: 300px;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    hr {
+      border: 3px solid rgb(32, 32, 133);
+      margin: 40px 10vw;
+    }
+
+    .secondSection, .aboutSection, .servicesSection, .contactSection {
+      max-width: 80vw;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: rgb(20, 20, 70);
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgb(202, 42, 202);
+    }
+
+    .secondSection h1,
+    .aboutSection h2,
+    .servicesSection h2,
+    .contactSection h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
       text-align: center;
-      padding-top: 100px;
-      background-color: #f4f4f4;
+      font-weight: 700;
+      color: rgb(202, 42, 202);
     }
+
+    .projectsGrid,
+    .servicesGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .projectCard, .serviceCard {
+      background-color: rgb(30, 30, 80);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 0 10px rgb(202, 42, 202);
+      transition: transform 0.3s ease;
+    }
+
+    .projectCard:hover, .serviceCard:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgb(227, 86, 201);
+    }
+
+    .projectCard h3, .serviceCard h3 {
+      margin-bottom: 1rem;
+      color: rgb(227, 86, 201);
+    }
+
+    .projectCard p, .serviceCard p, .aboutSection p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #ddd;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    input, textarea {
+      padding: 0.8rem;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+      font-family: "Poppins", sans-serif;
+    }
+
+    input:focus, textarea:focus {
+      outline: 2px solid rgb(202, 42, 202);
+      background-color: #1a1a4d;
+      color: white;
+    }
+
     button {
-      padding: 10px 20px;
-      font-size: 16px;
+      background-color: rgb(202, 42, 202);
+      border: none;
+      padding: 1rem;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 8px;
       cursor: pointer;
-      margin-top: 20px;
+      transition: background-color 0.3s ease;
     }
+
+    button:hover {
+      background-color: rgb(227, 86, 201);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 0;
+      background-color: rgb(30, 30, 100);
+      color: #bbb;
+      font-size: 0.9rem;
+    }
+
+    #myPhoto {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 3px solid rgb(202, 42, 202);
+      box-shadow: 0 0 10px rgb(202, 42, 202);
+    }
+
+    .section-icon {
+      width: 50px;
+      height: 50px;
+      vertical-align: middle;
+      margin-right: 12px;
+    }
+
+    .resume-actions {
+      margin-top: 16px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .resume-button {
+      padding: 10px 20px;
+      background-color: rgb(227, 86, 201);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .resume-button:hover {
+      background-color: rgb(190, 60, 170);
+    }
+
+    .resume-preview {
+      margin-top: 24px;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #111144;
+      box-shadow: 0 0 10px rgba(202, 42, 202, 0.5);
+    }
+
+    @media (max-width: 700px) {
+      .firstSection {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .leftSection, .rightSection {
+        width: 100%;
+      }
+
+      #element {
+        font-size: 1.6rem;
+      }
+    }
+    .projectCard a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background-color: rgb(202, 42, 202);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 0 10px rgba(202, 42, 202, 0.5);
+}
+
+.projectCard a:hover {
+  background-color: rgb(227, 86, 201);
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(227, 86, 201, 0.8);
+}
+.projectCard a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 16px;
+  background-color: rgb(202, 42, 202);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.projectCard a:hover {
+  background-color: rgb(227, 86, 201);
+}
+
+
   </style>
 </head>
 <body>
-  <h1>Hi, this is Piyush Suteri's portfolio virtual and all that now i have made some changes here again changesssss</h1>
-  <button onclick="location.href='portfolio.html'">Next</button>
+  <header>
+    <nav>
+      <div class="left">PORTFOLIO</div>
+      <div class="right">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="firstSection" id="home">
+      <div class="leftSection">
+        <img src="./photo2.jpg" alt="My Photo" id="myPhoto" />
+        <br />
+        Hi, My name is <span class="purple">Piyush</span>
+        <div>and I am passionate</div>
+        <span id="element" class="purple"></span>
+      </div>
+
+      <div class="rightSection">
+        <img src="./bg.png" id="programmer" alt="Programmer Illustration" />
+      </div>
+    </section>
+
+    <hr />
+
+    <section class="aboutSection" id="about">
+      <h2><img src="./aboutme.png" alt="About Icon" class="section-icon" /> About Me</h2>
+      <p>
+        I am a passionate web developer and problem solver with experience
+        building modern, responsive, and interactive websites and applications.
+        I love turning ideas into reality using clean code and modern design
+        principles.
+      </p>
+
+      <div class="resume-actions">
+        <button class="resume-button" onclick="toggleResume()">📄 View Resume</button>
+        <a href="./myresume.pdf" download class="resume-button">⬇️ Download Resume</a>
+      </div>
+
+      <div class="resume-preview" id="resumeViewer" style="display: none;">
+        <embed src="./myresume.pdf" type="application/pdf" width="100%" height="600px" />
+      </div>
+    </section>
+
+    <section class="servicesSection" id="services">
+      <h2><img src="./services.png" alt="Services Icon" class="section-icon" /> Skills</h2>
+      <div class="servicesGrid">
+        <div class="serviceCard">
+          <h3>Web Development</h3>
+          <p>Building responsive and fast websites using the latest web technologies.</p>
+        </div>
+        <!-- <div class="serviceCard">
+          <h3>UI/UX Design</h3>
+          <p>Designing user-friendly interfaces and experiences that engage users.</p>
+        </div> -->
+        <div class="serviceCard">
+          <h3>Problem Solving</h3>
+          <p>Strong logical thinking to solve complex coding challenges efficiently.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="secondSection" id="projects">
+      <h1><img src="./projects.png" alt="Projects Icon" class="section-icon" /> Projects</h1>
+      <div class="projectsGrid">
+        <div class="projectCard">
+          <h3>Road Sign Detection Model</h3>
+          <p>Built in Python using YOLO with a pretrained .pt model, this system detects and classifies road signs in real-time from images and video. 
+            Designed for smart vehicle applications, it delivers fast and accurate recognition under diverse conditions.</p>
+          <a href="https://github.com">GitHub Link</a>
+        </div>
+        <div class="projectCard">
+          <h3>Big Integer Library for C</h3>
+          <p>Handles integers larger than built-in types by using arrays. Supports basic arithmetic and is useful for high-precision calculations
+             in cryptography and math.</p>
+          <a href="https://github.com">GitHub Link</a>
+        </div>
+        <div class="projectCard">
+          <h3>Simon Game</h3>
+          <p>The Simon Game is a memory challenge where players repeat growing sequences of colors and sounds.Built with [your language], 
+            it features interactive feedback, score tracking, and increasing difficulty to test and improve memory skills.</p>
+          <a href="https://github.com">GitHub Link</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contactSection" id="contact">
+      <h2><img src="./contactme.jpg" alt="Contact Icon" class="section-icon" /> Contact Me</h2>
+      <form id="contactForm" action="#" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 40px;">
+  <a href="https://www.linkedin.com/in/atul-petwal-747357213/" target="_blank" style="display: flex; align-items: center; gap: 10px; color: white; text-decoration: none; font-size: 20px; font-weight: 700;">
+    <img src="./linkdn.webp" alt="LinkedIn" style="width: 32px; height: 32px;" />
+    LinkedIn
+  </a>
+  <a href="https://github.com/piyushsq" target="_blank" style="display: flex; align-items: center; gap: 10px; color: white; text-decoration: none; font-size: 20px; font-weight: 700;">
+    <img src="./gitHub.png" alt="GitHub" style="width: 70px; height: 40px;" />
+    GitHub
+  </a>
+</div>
+    </section>
+  </main>
+
+
+
+
+  <footer>
+
+    &copy; 2025 Piyush Suteri | All rights reserved.
+  </footer>
+
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+    var typed = new Typed('#element', {
+      strings: ['<i>Web</i> Developer.', 'Problem Solver'],
+      typeSpeed: 50,
+      backSpeed: 30,
+      backDelay: 1500,
+      loop: true
+    });
+
+    const form = document.getElementById("contactForm");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Thank you for reaching out! I'll get back to you soon.");
+      form.reset();
+    });
+
+    function toggleResume() {
+      const viewer = document.getElementById('resumeViewer');
+      if (viewer.style.display === 'none') {
+        viewer.style.display = 'block';
+        viewer.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        viewer.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 </html>
