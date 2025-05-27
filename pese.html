@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pese Videos</title>
+  <style>
+    .videosSection {
+      max-width: 80vw;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: rgb(20, 20, 70);
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgb(202, 42, 202);
+    }
+
+    .videosSection h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      font-weight: 700;
+      color: rgb(202, 42, 202);
+    }
+
+    .videoGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .videoCard {
+      background-color: rgb(30, 30, 80);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 0 10px rgb(202, 42, 202);
+      transition: transform 0.3s ease;
+    }
+
+    .videoCard:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgb(227, 86, 201);
+    }
+
+    .videoCard iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+
+    .videoCard h3 {
+      color: rgb(227, 86, 201);
+      margin-bottom: 0.75rem;
+    }
+
+    .videoCard p {
+      font-size: 1rem;
+      color: #ddd;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 700px) {
+      .videoGrid {
+        grid-template-columns: 1fr;
+      }
+
+      .videoCard iframe {
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="videosSection">
+    <h1>Pese Videos</h1>
+    <div class="videoGrid">
+<!-- Video 1 -->
+<div class="videoCard">
+  <iframe src="https://www.youtube.com/embed/9RNDw6EMGwE" allowfullscreen></iframe>
+  <h3>Video 1: Self Introduction</h3>
+  <p>Learn how to give a strong self-introduction, highlighting key personal and academic details to create a lasting first impression.</p>
+</div>
+
+<!-- Video 2 -->
+<div class="videoCard">
+  <iframe src="https://youtube.com/embed/3gncvls2vho" allowfullscreen></iframe>
+  <h3>Video 2: Self Introduction in 5 points</h3>
+  <p>This video breaks down self-introduction into 5 simple points to help you present yourself clearly and confidently in interviews or group settings.</p>
+</div>
+
+<!-- Video 3 -->
+<div class="videoCard">
+  <iframe src="https://youtube.com/embed/SQTGkNMH6-0" allowfullscreen></iframe>
+  <h3>Video 3: Sixer Theory Introduction</h3>
+  <p>Explore the Sixer Theory, a powerful introduction technique.</p>
+</div>
+
+<!-- Video 4 -->
+<div class="videoCard">
+  <iframe src="https://youtube.com/embed/GMjEUzkvdJw" allowfullscreen></iframe>
+  <h3>Video 4: Introduction to GD</h3>
+  <p>This video introduces the basics of Group Discussion (GD), explaining its purpose, structure, and key skills required to perform well.</p>
+</div>
+
+<!-- Video 5 -->
+<div class="videoCard">
+  <iframe src="https://youtube.com/embed/getOElaoqDQ" allowfullscreen></iframe>
+  <h3>Video 5: Bharat Ratna Activity</h3>
+  <p>Watch how the Bharat Ratna Activity encourages students to think critically and analytically by nominating one personality based on their research.</p>
+</div>
+
+<!-- Video 6 -->
+<div class="videoCard">
+  <iframe src="https://youtube.com/embed/oi1pUN6g0NE" allowfullscreen></iframe>
+  <h3>Video 6: GD Topic Initialisation</h3>
+  <p>Understand the best ways to initiate a Group Discussion, and what are the works and agenda of the initiator.</p>
+</div>
+
+<!-- Video 7 -->
+<div class="videoCard">
+  <iframe src="https://youtube.com/embed/OCyDQAstE6w" allowfullscreen></iframe>
+  <h3>Video 7: PI and Abstract Approach</h3>
+  <p>This video explains how to tackle Personal Interview questions and abstract topics with structured thinking with SPHILTER AND POPBEANS Technique.</p>
+</div>
+
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
